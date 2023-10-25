@@ -63,4 +63,9 @@ dependencies {
 
     //glide for image view
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+
+    //viewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-alpha03")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0-alpha03")
+    implementation ("android.arch.lifecycle:extensions:1.1.1")
 }

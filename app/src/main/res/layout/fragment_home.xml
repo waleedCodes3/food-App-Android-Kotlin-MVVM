@@ -58,6 +58,8 @@
             app:layout_constraintTop_toBottomOf="@id/what_would_Tv">
 
             <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/randommealiv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/accent"
