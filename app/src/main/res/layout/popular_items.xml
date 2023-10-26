@@ -5,12 +5,16 @@
     android:layout_height="@dimen/_90sdp"
     android:backgroundTint="@color/accent"
     android:elevation="@dimen/_3sdp"
+    android:layout_marginHorizontal="@dimen/_20sdp"
+
     app:cardCornerRadius="@dimen/_10sdp">
 
     <ImageView
         android:id="@+id/popular_mealIV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+
         android:contentDescription="meal image" />
 
 </androidx.cardview.widget.CardView>

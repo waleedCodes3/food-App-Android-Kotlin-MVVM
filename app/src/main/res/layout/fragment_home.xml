@@ -84,7 +84,7 @@
             android:layout_height="@dimen/_90sdp"
             app:layout_constraintTop_toBottomOf="@id/popular_item_tv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/popular_items"
             />
         <TextView
             android:id="@+id/category_tv"
@@ -99,8 +99,9 @@
             app:layout_constraintStart_toStartOf="@+id/popular_item_tv"
             app:layout_constraintTop_toBottomOf="@id/rv_popular_items" />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRv"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
+            android:layout_height="@dimen/_390sdp"
             app:layout_constraintTop_toBottomOf="@id/category_tv"
             app:layout_constraintEnd_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foodapp.pojo.MealsList
 import com.example.foodapp.retrofit.RetrofitInstance
-import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class MealsViewModel : ViewModel() {
     private var mealDetailsLiveData = MutableLiveData<MealsList.Meal>()
