@@ -78,4 +78,6 @@ dependencies {
 
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
+    //viewModelScope
+    implementation("androidx.lifecycle:lifecycle-view-model-ktx:2.4.0")
 }

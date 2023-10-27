@@ -1,15 +1,12 @@
 package com.example.foodapp.activities
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.foodapp.R
 import com.example.foodapp.databinding.ActivityMealBinding
 import com.example.foodapp.fragments.HomeFragment
 import com.example.foodapp.pojo.MealsList
@@ -50,7 +47,6 @@ class MealActivity : AppCompatActivity() {
                     binding.categoryTV.text = "Category: ${value.strCategory}"
                     binding.areaTV.text = "Area ${value.strArea}"
                     binding.instructionsSet.text = value.strInstructions
-                    youtubeLink=value.strYoutube
 
                 }
 
