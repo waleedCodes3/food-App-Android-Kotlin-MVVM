@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.foodapp.pojo.MealsList
 
-@Database(entities = [MealsList.Meal::class], version = 1)
+@Database(entities = [MealsList.Meal::class], version = 2)
 @TypeConverters(MealTypeConvertor::class)
 abstract class MealDB : RoomDatabase() {
     abstract fun mealDAO(): MealDAO
