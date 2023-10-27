@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.activities.CategoryMealsActivity
+import com.example.foodapp.activities.MainActivity
 import com.example.foodapp.activities.MealActivity
 import com.example.foodapp.adapters.AllCategoiesAdapater
 import com.example.foodapp.adapters.MostPopularMealsAdapter
@@ -39,7 +40,8 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
+//        homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
+            homeViewModel=(activity as MainActivity).homeViewModel
         popularMealsAdapter = MostPopularMealsAdapter()
         categoiesAdapater = AllCategoiesAdapater()
     }

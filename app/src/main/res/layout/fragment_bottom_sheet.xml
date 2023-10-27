@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.bottomSheet.BottomFragmentSheet">
+
+
+    <ImageView
+        android:id="@+id/mealIV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@color/accent"
+         />
+
+    <TextView
+        android:id="@+id/areaTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/baseline_search_24"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/myfont"
+        android:gravity="bottom"
+        android:text="Area"
+        app:layout_constraintStart_toEndOf="@id/mealIV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/categoryTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:drawableStart="@drawable/baseline_categories_24"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/myfont"
+        android:gravity="bottom"
+        android:text="Category"
+        app:layout_constraintBottom_toBottomOf="@id/areaTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/areaTV" />
+
+    <TextView
+        android:id="@+id/mealName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="meal name"
+        app:layout_constraintStart_toStartOf="@+id/areaTV"
+        app:layout_constraintTop_toBottomOf="@+id/areaTV" />
+
+    <TextView
+        android:id="@+id/ReadMoreTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read More..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/mealName"
+        app:layout_constraintTop_toBottomOf="@+id/mealName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

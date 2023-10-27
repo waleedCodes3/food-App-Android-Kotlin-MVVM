@@ -4,34 +4,38 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.foodapp.db.MealDB
 import com.example.foodapp.pojo.CategoriesMealsList
 import com.example.foodapp.pojo.CategoryList
 import com.example.foodapp.pojo.MealsList
 import com.example.foodapp.retrofit.RetrofitInstance
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val mealDB: MealDB) : ViewModel() {
     var randomMealLiveData = MutableLiveData<MealsList.Meal>()
     var popularMealsListLiveData = MutableLiveData<List<CategoryList.CategoryMeal>>()
     var categoriesMealsListLiveData = MutableLiveData<List<CategoriesMealsList.Category>>()
+    var favouriteMealsLiveData = mealDB.mealDAO().getAllMeals()
     fun getRandomMeal() {
-            RetrofitInstance.api.getRandomMeal().enqueue(object : retrofit2.Callback<MealsList> {
-                override fun onResponse(call: Call<MealsList>, response: Response<MealsList>) {
+        RetrofitInstance.api.getRandomMeal().enqueue(object : retrofit2.Callback<MealsList> {
+            override fun onResponse(call: Call<MealsList>, response: Response<MealsList>) {
 
 
-                    response.body()?.let {
-                        randomMealLiveData.value = it.meals[0]
-                    }
+                response.body()?.let {
+                    randomMealLiveData.value = it.meals[0]
                 }
+            }
 
-                override fun onFailure(call: Call<MealsList>, t: Throwable) {
-                    Log.d("error in homeViewModel","$t")
-                }
+            override fun onFailure(call: Call<MealsList>, t: Throwable) {
+                Log.d("error in homeViewModel", "$t")
+            }
 
 
-            })
+        })
     }
 
     fun getPopularMealsItems() {
@@ -61,10 +65,9 @@ class HomeViewModel : ViewModel() {
                     call: Call<CategoriesMealsList>,
                     response: Response<CategoriesMealsList>
                 ) {
-                    if (response.body()!=null)
-                    {
-                        categoriesMealsListLiveData.value=response.body()!!.categories
-                    }else{
+                    if (response.body() != null) {
+                        categoriesMealsListLiveData.value = response.body()!!.categories
+                    } else {
                         println("here")
                     }
                 }
@@ -75,7 +78,20 @@ class HomeViewModel : ViewModel() {
                 }
             })
     }
-    fun observerAllCategoriesList():LiveData<List<CategoriesMealsList.Category>>{
+    fun deleteMeal(meal:MealsList.Meal){
+        viewModelScope.launch {
+            mealDB.mealDAO().deleteMeal(meal);
+        }
+
+    }
+    fun insertMeal(meal:MealsList.Meal){
+        viewModelScope.launch {
+            mealDB.mealDAO().insertMeal(meal);
+        }
+
+    }
+
+    fun observerAllCategoriesList(): LiveData<List<CategoriesMealsList.Category>> {
         return categoriesMealsListLiveData
     }
 
@@ -85,5 +101,8 @@ class HomeViewModel : ViewModel() {
 
     fun observeRandomMealLiveData(): LiveData<MealsList.Meal> {
         return randomMealLiveData
+    }
+    fun observeFavouriteMeals():LiveData<List<MealsList.Meal>>{
+        return favouriteMealsLiveData
     }
 }

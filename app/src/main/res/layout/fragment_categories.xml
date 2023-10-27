@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/categoriesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/categoriesFragment"
     tools:context=".fragments.CategoriesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/categoriesTV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Categories Fragment" />
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Rv_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoriesTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

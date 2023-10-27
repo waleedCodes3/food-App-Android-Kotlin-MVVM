@@ -40,4 +40,5 @@ class MealsViewModel(var mealDB:MealDB?) : ViewModel() {
     }
 
 
+
 }
